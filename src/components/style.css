@@ -1,0 +1,7 @@
+.RCLButton {
+    width: 200px;
+    height: 60px;
+    background: rgb(20, 185, 33);
+    color: black;
+    box-shadow: 0.5px solid;
+}
