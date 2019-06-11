@@ -13,12 +13,13 @@ const dynamicStyle = props =>
     font-size: 14px;
     font-weight: normal;
     box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
-    cursor: pointer;
+    cursor: ${props.disabled ? 'auto' : 'pointer'};
     font-family: normal;
     border-radius: 2px;
     border: 1px solid #ccc;
     padding: 5px;
     margin: 0px;
+    opacity: ${props.disabled ? 0.3 : 1};
     ${props.customStyle};
     &:hover {
       background-color: ${props.primaryBgColor};
@@ -34,19 +35,20 @@ const ButtonWrapper = styled.button`
 
 class Button extends React.Component {
 
-  handleButtonClick = (id) => {
+  handleButtonClick = (value, id) => {
     const { buttonClick } = this.props;
-    buttonClick(id);
+    buttonClick(value, id);
   }
 
   render() {
-    const { title, id, customStyle, primaryBgColor} = this.props;
+    const { title, id, customStyle, primaryBgColor, disabled} = this.props;
     return (
       <ButtonWrapper
         key={id} 
-        onClick={()=>this.handleButtonClick(id)}
+        onClick={()=>this.handleButtonClick(title, id)}
         primaryBgColor={primaryBgColor}
         customStyle={customStyle}
+        disabled={disabled}
       >
         {title}
       </ButtonWrapper>
@@ -57,6 +59,7 @@ class Button extends React.Component {
 Button.defaultProps = {
   customStyle: {},
   primaryBgColor: '#FFFFFF',
+  disabled: false,
 }
 
 Button.propTypes = {
@@ -65,6 +68,7 @@ Button.propTypes = {
   buttonClick: PropTypes.func.isRequired,
   customStyle: PropTypes.shape({}),
   primaryBgColor: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 export default Button;
