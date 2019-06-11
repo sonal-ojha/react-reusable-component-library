@@ -1,5 +1,5 @@
 {
-  "name": "react-component-library",
+  "name": "react-reusable-components-library",
   "version": "0.0.1",
   "description": "A reusable React component library with extensively used components to develop a webpage/lib",
   "main": "./lib/reactLibrary.js",
