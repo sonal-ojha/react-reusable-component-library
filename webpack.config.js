@@ -1,18 +1,17 @@
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
-    libraryTarget: 'commonjs2'
+      path: path.resolve('lib'),
+      filename: 'reactLibrary.js',
+      libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: 'babel-loader'
       },
@@ -21,5 +20,5 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
-  },
-};
+  }
+}
