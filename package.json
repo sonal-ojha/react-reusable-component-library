@@ -1,6 +1,6 @@
 {
   "name": "react-reusable-components-library",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "description": "A reusable React component library with extensively used components to develop a webpage/lib",
   "main": "./lib/reactLibrary.js",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "react-reusable-components",
     "input",
     "button",
+    "button-group",
     "components"
   ],
   "scripts": {
